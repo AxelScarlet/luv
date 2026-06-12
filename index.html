@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For You 💌</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="starfield" aria-hidden="true">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+  </div>
+
+  <div class="hearts-bg" aria-hidden="true"></div>
+  <div id="clickHearts" class="click-hearts" aria-hidden="true"></div>
+  <div id="toast" class="toast hidden" role="status"></div>
+
+  <div id="intro" class="intro-screen">
+    <div class="loader" id="introLoader" aria-label="Loading"></div>
+  </div>
+
+  <!-- Landing -->
+  <section id="landing" class="screen">
+    <div class="landing-content">
+      <p class="eyebrow animate-fade-up" id="landingEyebrow">just for you</p>
+      <h1 class="title animate-fade-up delay-1">
+        <span id="landingTitle">I wrote you a</span><br>
+        <span class="highlight" id="landingHighlight">letter</span>
+      </h1>
+      <p class="subtitle animate-fade-up delay-2" id="landingSubtitle"></p>
+
+      <div class="stack envelope-stack animate-fade-up delay-3">
+        <div class="card envelope-card">
+          <button class="envelope" id="openEnvelope" aria-label="Open love letter">
+            <div class="envelope-back"></div>
+            <div class="letter-preview">
+              <div class="letter-lines"><span></span><span></span><span></span></div>
+              <div class="letter-heart">♥</div>
+            </div>
+            <div class="envelope-flap"></div>
+            <div class="envelope-front"></div>
+            <div class="envelope-seal"><span>♥</span></div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Letter -->
+  <section id="letterView" class="screen scrollable">
+    <div class="letter-container">
+      <div class="stack letter-stack">
+        <div class="card letter-card">
+          <div class="paper-content">
+            <p class="letter-to">Dear <span id="recipientName">you</span>,</p>
+            <div class="letter-body" id="letterBody"></div>
+            <p class="letter-from">
+              <span id="signOff">With all my love,</span><br>
+              <span id="senderName"></span>
+            </p>
+            <div class="letter-hearts-decoration">♥ ♥ ♥</div>
+          </div>
+        </div>
+      </div>
+      <div class="letter-actions">
+        <button class="btn-pastel" id="replayLetter">
+          <span class="btn-shine"></span>
+          <span>Read again</span>
+        </button>
+        <button class="btn-pastel btn-secondary" id="continueBtn">
+          <span class="btn-shine"></span>
+          <span>There's more for you ♥</span>
+        </button>
+        <button class="btn-ghost" id="closeLetter">Close the envelope</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hub -->
+  <section id="hub" class="screen scrollable">
+    <div class="hub-container">
+      <p class="eyebrow" id="hubEyebrow">there's more</p>
+      <h2 class="title hub-title">
+        <span id="hubTitle">I like you so much</span><br>
+        <span class="highlight" id="hubHighlight">you'll know it</span>
+      </h2>
+      <p class="subtitle" id="hubSubtitle"></p>
+
+      <div class="hub-press-zone" id="hubPressZone">
+        <div class="d3wrapper d3wrapper-lg">
+          <div class="d3cover"></div>
+          <button class="d3button" id="hubHeartBtn" type="button" aria-label="Press the heart"></button>
+        </div>
+        <p class="press-hint" id="pressHint">press me</p>
+      </div>
+
+      <div class="hub-nav hidden" id="hubNav">
+        <button type="button" class="d3nav" data-go="flowers">
+          <div class="d3wrapper">
+            <div class="d3cover d3cover-mint"></div>
+            <span class="d3button d3button-mint">🌸</span>
+          </div>
+          <span class="d3nav-label">Flowers</span>
+        </button>
+        <button type="button" class="d3nav" data-go="cute">
+          <div class="d3wrapper">
+            <div class="d3cover d3cover-peach"></div>
+            <span class="d3button d3button-peach">🎀</span>
+          </div>
+          <span class="d3nav-label">Cute things</span>
+        </button>
+        <button type="button" class="d3nav" data-go="video">
+          <div class="d3wrapper">
+            <div class="d3cover d3cover-sky"></div>
+            <span class="d3button d3button-sky">▶</span>
+          </div>
+          <span class="d3nav-label">Our song</span>
+        </button>
+      </div>
+
+      <button class="btn-ghost hub-back" data-go="letterView">← Back to letter</button>
+    </div>
+  </section>
+
+  <!-- Virtual flowers -->
+  <section id="flowers" class="screen scrollable">
+    <div class="panel-container">
+      <button class="panel-back" data-go="hub" aria-label="Back">←</button>
+      <h2 class="panel-title">
+        <span id="flowersTitle">A garden</span>
+        <span class="highlight" id="flowersHighlight">just for you</span>
+      </h2>
+      <p class="subtitle panel-sub" id="flowersSubtitle"></p>
+
+      <div class="bouquet-bar">
+        <span class="bouquet-vase">🏺</span>
+        <div class="bouquet-flowers" id="bouquet"></div>
+        <span class="bouquet-count" id="bouquetCount">0</span>
+      </div>
+      <p class="bouquet-label" id="bouquetLabel">Your bouquet</p>
+
+      <div class="flower-meadow" id="flowerMeadow"></div>
+    </div>
+  </section>
+
+  <!-- Cute things -->
+  <section id="cute" class="screen scrollable">
+    <div class="panel-container">
+      <button class="panel-back" data-go="hub" aria-label="Back">←</button>
+      <h2 class="panel-title">Things that remind me <span class="highlight">how cute you are</span></h2>
+      <p class="subtitle panel-sub">Tap anything. Little surprises inside.</p>
+
+      <div class="cute-grid" id="cuteGrid"></div>
+      <div class="cute-reveal" id="cuteReveal">
+        <span class="cute-reveal-emoji" id="cuteRevealEmoji"></span>
+        <p class="cute-reveal-text" id="cuteRevealText"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- YouTube -->
+  <section id="video" class="screen scrollable">
+    <div class="panel-container">
+      <button class="panel-back" data-go="hub" aria-label="Back">←</button>
+      <h2 class="panel-title" id="videoTitle">This reminds me of you</h2>
+      <p class="subtitle panel-sub" id="videoCaption"></p>
+
+      <div class="stack video-stack">
+        <div class="card video-card">
+          <div class="video-wrap" id="videoWrap">
+            <div class="video-placeholder" id="videoPlaceholder">
+              <p>Add your YouTube video ID in <code>js/letter.js</code></p>
+              <p class="video-placeholder-hint">youtube.com/watch?v=<strong>paste here</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="video-note">Put on headphones if you can. This one's for you. ♥</p>
+    </div>
+  </section>
+
+  <script src="js/letter.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
